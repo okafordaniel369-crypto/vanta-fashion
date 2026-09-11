@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VANTA | Wear Different.</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#080808;
+  color:#fff;
+  line-height:1.6;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+img{
+  width:100%;
+  display:block;
+}
+
+/* NAVIGATION */
+
+nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+  padding:20px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(8,8,8,.72);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+  font-size:25px;
+  font-weight:900;
+  letter-spacing:5px;
+}
+
+.nav-links{
+  display:flex;
+  gap:32px;
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+
+.nav-links a{
+  opacity:.75;
+  transition:.3s;
+}
+
+.nav-links a:hover{
+  opacity:1;
+}
+
+.nav-icons{
+  display:flex;
+  gap:18px;
+  font-size:20px;
+}
+
+.menu{
+  display:none;
+  font-size:24px;
+}
+
+/* HERO */
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding:140px 7% 80px;
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.9),rgba(0,0,0,.35)),
+    url("https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1800&q=90")
+    center/cover;
+}
+
+.hero-content{
+  max-width:700px;
+  animation:fadeUp 1s ease;
+}
+
+.hero small{
+  letter-spacing:4px;
+  text-transform:uppercase;
+  font-size:11px;
+  opacity:.65;
+}
+
+.hero h1{
+  font-size:clamp(65px,11vw,150px);
+  line-height:.88;
+  margin:20px 0;
+  letter-spacing:-6px;
+}
+
+.hero p{
+  max-width:480px;
+  color:#ccc;
+  font-size:16px;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:14px;
+  margin-top:35px;
+}
+
+.btn{
+  padding:15px 25px;
+  border:1px solid #fff;
+  text-transform:uppercase;
+  font-size:12px;
+  letter-spacing:2px;
+  transition:.3s;
+}
+
+.btn:hover{
+  background:#fff;
+  color:#000;
+}
+
+.btn.dark{
+  background:#fff;
+  color:#000;
+}
+
+.btn.dark:hover{
+  background:transparent;
+  color:#fff;
+}
+
+/* TICKER */
+
+.ticker{
+  overflow:hidden;
+  white-space:nowrap;
+  border-top:1px solid #222;
+  border-bottom:1px solid #222;
+  padding:18px 0;
+  background:#0c0c0c;
+}
+
+.ticker-track{
+  display:inline-block;
+  animation:scroll 22s linear infinite;
+  font-size:12px;
+  letter-spacing:4px;
+  text-transform:uppercase;
+}
+
+.ticker span{
+  margin:0 35px;
+}
+
+/* SECTION */
+
+section{
+  padding:110px 7%;
+}
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  margin-bottom:45px;
+}
+
+.section-head h2{
+  font-size:clamp(35px,5vw,65px);
+  letter-spacing:-3px;
+}
+
+.section-head p{
+  max-width:380px;
+  color:#888;
+  font-size:14px;
+}
+
+/* PRODUCTS */
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.product{
+  position:relative;
+  overflow:hidden;
+  background:#111;
+}
+
+.product-image{
+  height:480px;
+  overflow:hidden;
+  position:relative;
+}
+
+.product-image img{
+  height:100%;
+  object-fit:cover;
+  transition:.6s;
+}
+
+.product:hover img{
+  transform:scale(1.06);
+}
+
+.badge{
+  position:absolute;
+  top:15px;
+  left:15px;
+  background:#fff;
+  color:#000;
+  padding:7px 11px;
+  font-size:9px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  z-index:2;
+}
+
+.product-info{
+  padding:18px 4px 10px;
+}
+
+.product-info h3{
+  font-size:15px;
+  font-weight:500;
+}
+
+.product-info p{
+  color:#777;
+  font-size:12px;
+  margin-top:4px;
+}
+
+.price{
+  margin-top:10px;
+  font-size:14px;
+}
+
+/* FEATURE */
+
+.feature{
+  min-height:650px;
+  position:relative;
+  display:flex;
+  align-items:end;
+  padding:55px;
+  overflow:hidden;
+  background:
+    linear-gradient(0deg,rgba(0,0,0,.9),transparent 65%),
+    url("https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1800&q=90")
+    center/cover;
+}
+
+.feature-content{
+  max-width:600px;
+}
+
+.feature small{
+  letter-spacing:3px;
+  text-transform:uppercase;
+  font-size:10px;
+}
+
+.feature h2{
+  font-size:clamp(45px,7vw,90px);
+  line-height:.9;
+  letter-spacing:-4px;
+  margin:15px 0;
+}
+
+/* CATEGORIES */
+
+.categories{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.category{
+  height:400px;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:end;
+  padding:30px;
+  background-size:cover;
+  background-position:center;
+}
+
+.category:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(transparent,rgba(0,0,0,.85));
+}
+
+.category h3{
+  position:relative;
+  z-index:2;
+  font-size:28px;
+}
+
+.cat1{
+  background-image:url("https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1000&q=80");
+}
+
+.cat2{
+  background-image:url("https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=1000&q=80");
+}
+
+.cat3{
+  background-image:url("https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1000&q=80");
+}
+
+/* BRAND STORY */
+
+.story{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:70px;
+  align-items:center;
+}
+
+.story-image{
+  height:600px;
+  overflow:hidden;
+}
+
+.story-image img{
+  height:100%;
+  object-fit:cover;
+}
+
+.story-text small{
+  text-transform:uppercase;
+  letter-spacing:3px;
+  color:#777;
+}
+
+.story-text h2{
+  font-size:clamp(40px,6vw,80px);
+  line-height:.95;
+  letter-spacing:-4px;
+  margin:20px 0;
+}
+
+.story-text p{
+  color:#999;
+  max-width:500px;
+  margin-bottom:20px;
+}
+
+.stats{
+  display:flex;
+  gap:50px;
+  margin-top:40px;
+}
+
+.stat strong{
+  display:block;
+  font-size:30px;
+}
+
+.stat span{
+  color:#666;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+
+/* REVIEWS */
+
+.reviews{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.review{
+  border:1px solid #202020;
+  padding:30px;
+  background:#0d0d0d;
+}
+
+.stars{
+  letter-spacing:3px;
+  margin-bottom:20px;
+}
+
+.review p{
+  color:#aaa;
+  font-size:14px;
+}
+
+.review strong{
+  display:block;
+  margin-top:25px;
+  font-size:12px;
+}
+
+/* INSTAGRAM */
+
+.instagram{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:6px;
+}
+
+.instagram img{
+  height:220px;
+  object-fit:cover;
+  filter:grayscale(15%);
+  transition:.4s;
+}
+
+.instagram img:hover{
+  filter:grayscale(0);
+  transform:scale(.98);
+}
+
+/* CTA */
+
+.cta{
+  text-align:center;
+  padding:140px 7%;
+  background:#f4f4f4;
+  color:#080808;
+}
+
+.cta h2{
+  font-size:clamp(50px,8vw,110px);
+  letter-spacing:-6px;
+  line-height:.9;
+  margin-bottom:30px;
+}
+
+.cta p{
+  color:#555;
+  max-width:500px;
+  margin:auto;
+}
+
+/* FOOTER */
+
+footer{
+  padding:70px 7% 30px;
+  background:#050505;
+}
+
+.footer-top{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:40px;
+  padding-bottom:70px;
+}
+
+.footer-brand p{
+  color:#666;
+  max-width:300px;
+  margin-top:20px;
+  font-size:13px;
+}
+
+footer h4{
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  margin-bottom:20px;
+}
+
+footer a{
+  display:block;
+  color:#777;
+  font-size:13px;
+  margin-bottom:10px;
+}
+
+footer a:hover{
+  color:#fff;
+}
+
+.footer-bottom{
+  border-top:1px solid #181818;
+  padding-top:25px;
+  color:#555;
+  font-size:11px;
+  display:flex;
+  justify-content:space-between;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  background:#fff;
+  color:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:23px;
+  z-index:100;
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
+  transition:.3s;
+}
+
+.whatsapp:hover{
+  transform:scale(1.1);
+}
+
+/* ANIMATION */
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes scroll{
+  from{
+    transform:translateX(0);
+  }
+  to{
+    transform:translateX(-50%);
+  }
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .nav-links{
+    display:none;
+  }
+
+  .menu{
+    display:block;
+  }
+
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .product-image{
+    height:390px;
+  }
+
+  .categories{
+    grid-template-columns:1fr;
+  }
+
+  .category{
+    height:420px;
+  }
+
+  .story{
+    grid-template-columns:1fr;
+    gap:35px;
+  }
+
+  .story-image{
+    height:500px;
+  }
+
+  .reviews{
+    grid-template-columns:1fr;
+  }
+
+  .instagram{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .instagram img{
+    height:180px;
+  }
+
+  .footer-top{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:550px){
+
+  nav{
+    padding:17px 5%;
+  }
+
+  .logo{
+    font-size:20px;
+  }
+
+  .hero{
+    min-height:90vh;
+    padding:130px 6% 60px;
+  }
+
+  .hero h1{
+    font-size:65px;
+    letter-spacing:-4px;
+  }
+
+  .hero-buttons{
+    flex-direction:column;
+    max-width:220px;
+  }
+
+  section{
+    padding:80px 6%;
+  }
+
+  .section-head{
+    display:block;
+  }
+
+  .section-head p{
+    margin-top:15px;
+  }
+
+  .products{
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
+
+  .product-image{
+    height:270px;
+  }
+
+  .product-info h3{
+    font-size:13px;
+  }
+
+  .feature{
+    min-height:520px;
+    padding:30px;
+  }
+
+  .feature h2{
+    font-size:55px;
+  }
+
+  .story-text h2{
+    font-size:55px;
+  }
+
+  .stats{
+    gap:25px;
+  }
+
+  .stat strong{
+    font-size:24px;
+  }
+
+  .footer-top{
+    grid-template-columns:1fr;
+  }
+
+  .footer-bottom{
+    display:block;
+  }
+
+  .footer-bottom span{
+    display:block;
+    margin-top:8px;
+  }
+
+  .cta h2{
+    font-size:60px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+
+<nav>
+  <div class="logo">VANTA</div>
+
+  <div class="nav-links">
+    <a href="#shop">Shop</a>
+    <a href="#collection">Collection</a>
+    <a href="#story">Our Story</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <div class="nav-icons">
+    <span>⌕</span>
+    <span>♡</span>
+    <span>🛍</span>
+    <span class="menu">☰</span>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero">
+
+  <div class="hero-content">
+
+    <small>VANTA / AUTUMN 2026</small>
+
+    <h1>WEAR<br>DIFFERENT.</h1>
+
+    <p>
+      Contemporary streetwear designed for people who
+      don't need permission to stand out.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#shop" class="btn dark">Shop Collection</a>
+      <a href="#collection" class="btn">Explore Drop</a>
+    </div>
+
+  </div>
+
+</header>
+
+
+<!-- TICKER -->
+
+<div class="ticker">
+  <div class="ticker-track">
+    <span>VANTA</span>
+    <span>NEW SEASON</span>
+    <span>MADE FOR THE BOLD</span>
+    <span>ENUGU • NIGERIA</span>
+    <span>VANTA</span>
+    <span>NEW SEASON</span>
+    <span>MADE FOR THE BOLD</span>
+    <span>ENUGU • NIGERIA</span>
+  </div>
+</div>
+
+
+<!-- SHOP -->
+
+<section id="shop">
+
+  <div class="section-head">
+
+    <div>
+      <small>01 / SHOP</small>
+      <h2>Latest Drop</h2>
+    </div>
+
+    <p>
+      A refined selection of everyday essentials,
+      statement pieces and limited VANTA releases.
+    </p>
+
+  </div>
+
+
+  <div class="products">
+
+    <div class="product">
+
+      <div class="product-image">
+
+        <span class="badge">New</span>
+
+        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=85">
+
+      </div>
+
+      <div class="product-info">
+        <h3>Essential Heavy Tee</h3>
+        <p>Oversized / Black</p>
+        <div class="price">₦28,000</div>
+      </div>
+
+    </div>
+
+
+    <div class="product">
+
+      <div class="product-image">
+
+        <span class="badge">Best Seller</span>
+
+        <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=900&q=85">
+
+      </div>
+
+      <div class="product-info">
+        <h3>VANTA Utility Jacket</h3>
+        <p>Relaxed Fit / Black</p>
+        <div class="price">₦75,000</div>
+      </div>
+
+    </div>
+
+
+    <div class="product">
+
+      <div class="product-image">
+
+        <img src="https://images.unsplash.com/photo-1548883354-7622d03aca27?auto=format&fit=crop&w=900&q=85">
+
+      </div>
+
+      <div class="product-info">
+        <h3>After Dark Jacket</h3>
+        <p>Oversized / Charcoal</p>
+        <div class="price">₦68,000</div>
+      </div>
+
+    </div>
+
+
+    <div class="product">
+
+      <div class="product-image">
+
+        <span class="badge">Limited</span>
+
+        <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=900&q=85">
+
+      </div>
+
+      <div class="product-info">
+        <h3>Shadow Cargo</h3>
+        <p>Wide Fit / Graphite</p>
+        <div class="price">₦52,000</div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FEATURED COLLECTION -->
+
+<section id="collection">
+
+  <div class="feature">
+
+    <div class="feature-content">
+
+      <small>02 / FEATURED COLLECTION</small>
+
+      <h2>AFTER<br>DARK.</h2>
+
+      <p>
+        A darker interpretation of everyday streetwear.
+        Heavy textures, relaxed silhouettes and understated details.
+      </p>
+
+      <br>
+
+      <a href="#shop" class="btn">Explore Collection</a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CATEGORIES -->
+
+<section>
+
+  <div class="section-head">
+
+    <div>
+      <small>03 / CATEGORIES</small>
+      <h2>Find Your Fit</h2>
+    </div>
+
+  </div>
+
+
+  <div class="categories">
+
+    <a href="#shop" class="category cat1">
+      <h3>Outerwear ↗</h3>
+    </a>
+
+    <a href="#shop" class="category cat2">
+      <h3>Essentials ↗</h3>
+    </a>
+
+    <a href="#shop" class="category cat3">
+      <h3>Streetwear ↗</h3>
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- STORY -->
+
+<section id="story">
+
+  <div class="story">
+
+    <div class="story-image">
+
+      <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=90">
+
+    </div>
+
+
+    <div class="story-text">
+
+      <small>04 / OUR STORY</small>
+
+      <h2>BUILT TO<br>STAND OUT.</h2>
+
+      <p>
+        VANTA started with one simple idea:
+        clothing should feel like an extension of who you are.
+      </p>
+
+      <p>
+        We create modern pieces with strong silhouettes,
+        clean details and an attitude that doesn't follow
+        the crowd.
+      </p>
+
+      <div class="stats">
+
+        <div class="stat">
+          <strong>2021</strong>
+          <span>Founded</span>
+        </div>
+
+        <div class="stat">
+          <strong>40+</strong>
+          <span>Designs</span>
+        </div>
+
+        <div class="stat">
+          <strong>2K+</strong>
+          <span>Customers</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- REVIEWS -->
+
+<section>
+
+  <div class="section-head">
+
+    <div>
+      <small>05 / VANTA COMMUNITY</small>
+      <h2>What They Say</h2>
+    </div>
+
+  </div>
+
+
+  <div class="reviews">
+
+    <div class="review">
+
+      <div class="stars">★★★★★</div>
+
+      <p>
+        “The quality surprised me. The jacket fits perfectly
+        and actually looks better in person.”
+      </p>
+
+      <strong>CHISOM A.</strong>
+
+    </div>
+
+
+    <div class="review">
+
+      <div class="stars">★★★★★</div>
+
+      <p>
+        “VANTA is easily one of my favourite Nigerian
+        streetwear brands right now.”
+      </p>
+
+      <strong>DAVID O.</strong>
+
+    </div>
+
+
+    <div class="review">
+
+      <div class="stars">★★★★★</div>
+
+      <p>
+        “Clean designs, fast delivery and the packaging
+        was seriously impressive.”
+      </p>
+
+      <strong>AMAKA N.</strong>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- INSTAGRAM -->
+
+<section>
+
+  <div class="section-head">
+
+    <div>
+      <small>06 / FOLLOW VANTA</small>
+      <h2>@VANTA.WEAR</h2>
+    </div>
+
+    <p>
+      New drops, behind-the-scenes moments and
+      the VANTA community.
+    </p>
+
+  </div>
+
+
+  <div class="instagram">
+
+    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=700&q=80">
+
+    <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=700&q=80">
+
+    <img src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=700&q=80">
+
+    <img src="https://images.unsplash.com/photo-1506629905607-d9b1c7d0bca5?auto=format&fit=crop&w=700&q=80">
+
+    <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=80">
+
+  </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta" id="contact">
+
+  <h2>READY TO<br>STAND OUT?</h2>
+
+  <p>
+    Explore the latest VANTA collection or speak
+    with our team about your next order.
+  </p>
+
+  <br>
+
+  <a
+    href="https://wa.me/2348000000000"
+    class="btn dark"
+    target="_blank">
+    Chat With VANTA
+  </a>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="footer-top">
+
+    <div class="footer-brand">
+
+      <div class="logo">VANTA</div>
+
+      <p>
+        Contemporary streetwear from Enugu, Nigeria.
+        Designed for those who choose their own direction.
+      </p>
+
+    </div>
+
+
+    <div>
+
+      <h4>Shop</h4>
+
+      <a href="#shop">New Arrivals</a>
+      <a href="#shop">Essentials</a>
+      <a href="#shop">Outerwear</a>
+      <a href="#collection">Collections</a>
+
+    </div>
+
+
+    <div>
+
+      <h4>Company</h4>
+
+      <a href="#story">Our Story</a>
+      <a href="#">Shipping</a>
+      <a href="#">Returns</a>
+      <a href="#">Contact</a>
+
+    </div>
+
+
+    <div>
+
+      <h4>Social</h4>
+
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+      <a href="#">WhatsApp</a>
+      <a href="#">Email</a>
+
+    </div>
+
+  </div>
+
+
+  <div class="footer-bottom">
+
+    <span>© 2026 VANTA. All rights reserved.</span>
+
+    <span>ENUGU • NIGERIA</span>
+
+  </div>
+
+</footer>
+
+
+<!-- WHATSAPP -->
+
+<a
+  class="whatsapp"
+  href="https://wa.me/2348000000000"
+  target="_blank"
+  aria-label="Chat on WhatsApp">
+  ☎
+</a>
+
+</body>
+</html>
